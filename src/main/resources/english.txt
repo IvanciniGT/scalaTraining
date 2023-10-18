@@ -1,3 +1,5 @@
 apple=Fruit of the apple tree
+mapple=Fruit of the mapple tree
+pear=Fruit of the pear tree
 banana=Fruit of the banana tree
 free=Not under the control or in the power of another|able to act or be done as one wishes.

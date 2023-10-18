@@ -7,6 +7,9 @@ import scala.io.Source
 
 object DictionaryUtils {
 
+  val MAX_WORDS_TO_SUGGEST = 10
+  val MAX_ALLOWED_DISTANCE = 3
+
   def normalizeWord(word:String): String = word.toLowerCase().trim()
 
   def readDictionaryFile(language:String): Map[String, Array[String]] ={
@@ -44,9 +47,4 @@ object DictionaryUtils {
   }
 
 
-}
-object Test {
-  def main(args: Array[String]): Unit = {
-    DictionaryUtils.readDictionaryFile("english")
-  }
 }

@@ -6,4 +6,6 @@ lazy val root = (project in file("."))
   .settings(
     name := "scalaTraining",
     idePackagePrefix := Some("com.training")
-  )
+
+)
+libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.0"

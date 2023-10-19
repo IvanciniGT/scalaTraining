@@ -1,8 +1,5 @@
 package com.training
 package com.dictionary
-import scala.collection.parallel.ParSeq
-
-import scala.collection.mutable
 import scala.io.Source
 
 object DictionaryUtils {
@@ -23,28 +20,15 @@ object DictionaryUtils {
     fileChannel.close()
     termsMap
   }
+  private def minimum(i: Int*): Int = i.min
 
-  def calculateDistance(s1: String, s2: String):Int = levenshtein(s1, s2)(s1.length, s2.length)
-
-  private def levenshtein(s1: String, s2: String): mutable.Map[(Int, Int), Int] = {
-    val memoizedCosts = mutable.Map[(Int, Int), Int]()
-
-    def lev: ((Int, Int)) => Int = {
-      case (k1, k2) =>
-        memoizedCosts.getOrElseUpdate((k1, k2), (k1, k2) match {
-          case (i, 0) => i
-          case (0, j) => j
-          case (i, j) =>
-            ParSeq(1 + lev((i - 1, j)),
-              1 + lev((i, j - 1)),
-              lev((i - 1, j - 1))
-                + (if (s1(i - 1) != s2(j - 1)) 1 else 0)).min
-        })
-    }
-
-    lev((s1.length, s2.length))
-    memoizedCosts
+  def calculateDistance(s1: String, s2: String): Int = {
+    val dist = Array.tabulate(s2.length + 1, s1.length + 1) { (j, i) => if (j == 0) i else if (i == 0) j else 0 }
+    for {j <- dist.indices.tail
+         i <- dist(0).indices.tail} dist(j)(i) =
+      if (s2(j - 1) == s1(i - 1)) dist(j - 1)(i - 1)
+      else minimum(dist(j - 1)(i) + 1, dist(j)(i - 1) + 1, dist(j - 1)(i - 1) + 1)
+    dist(s2.length)(s1.length)
   }
-
 
 }

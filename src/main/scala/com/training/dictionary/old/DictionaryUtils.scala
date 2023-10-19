@@ -1,5 +1,6 @@
 package com.training
-package com.dictionary
+package com.training.dictionary.old
+
 import scala.io.Source
 
 object DictionaryUtils {

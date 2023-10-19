@@ -1,7 +1,8 @@
 package com.training
-package com.dictionary
+package com.training.dictionary.old
 
 import scala.collection.parallel.CollectionConverters.ImmutableIterableIsParallelizable
+import scala.io.Source
 
 class DictionaryImpl (private val language:String , private val terms:Map[String, Array[String]]) extends Dictionary{
 

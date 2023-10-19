@@ -9,3 +9,4 @@ lazy val root = (project in file("."))
 
 )
 libraryDependencies += "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.0"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.3.0-SNAP4" % Test

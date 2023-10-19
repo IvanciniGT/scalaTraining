@@ -1,6 +1,7 @@
 package com.training
 package com.dictionary
 
+import java.io.FileNotFoundException
 import scala.collection.mutable
 import scala.collection.parallel.CollectionConverters.ImmutableIterableIsParallelizable
 import scala.io.Source
@@ -19,8 +20,15 @@ trait Dictionary {
 }
 
 object Dictionary {
-  def getDictionary(language:String): Dictionary = {
-    DictionaryImpl.getDictionary(language)
+  def getDictionary(language:String): Option[Dictionary] = {
+    try{
+      val dictionary = DictionaryImpl.getDictionary(language)
+      Some(dictionary)
+      // Catch file not found exception
+    }catch{
+      case e:FileNotFoundException => None
+      case e:Exception => throw e
+    }
   }
 }
 

@@ -114,3 +114,45 @@ Databases validates dates... with logic
     Day should be between 1 and 31 if month is 1, 3, 5, 7, 8, 10, 12
                        1 and 30 if month is 4, 6, 9, 11
                         1 and 28 if month is 2  (29 if leap year)
+
+---
+
+HangmanGame
+    -> HangmanGameLogic
+    -> HangmanGameUI
+    -> HangmanGameStatus
+
+Let's create some tests for the HangmanGame.
+
+What kind of tests should we do?
+- Unit tests for all those 4 components
+- Integration tests for:
+  - HangmanGame + HangmanGameLogic
+  - HangmanGame + HangmanGameUI
+  - HangmanGame + HangmanGameStatus
+- Some system tests for the whole game
+
+
+We classify tests by using different taxonomies:
+- Depending on the test scope
+    - Unit tests            Is a test that is focus on a unique/single caracteristic of an ISOLATED component
+    - Integration tests     Is a test that is focus on the COMMUNICATION between 2 components   
+    - End2End tests         Is a test that is focus on the BEHAVIOUR of the system as a whole
+- Depending on the test objective
+    - Functional tests
+    - Non-functional tests
+        - Performance
+        - Scalability
+        - HA
+        - Load
+        - Security
+        - Usability
+        - etc...
+  
+Test Doubles: Martin Fowler
+----------------------------
+Dummies
+Stubs
+Fakes
+Spies
+Mocks 

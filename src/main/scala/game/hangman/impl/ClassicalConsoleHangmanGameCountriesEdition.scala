@@ -3,10 +3,10 @@ package game.hangman.impl
 
 import scala.io.Source
 import game.Player
-import game.hangman.HangmanGameMatch
+import game.Winner
+import game.hangman.AbstractHangmanGame
 
-object ClassicalConsoleHangmanGameCountriesEdition{
-
+class ClassicalConsoleHangmanGame protected (filename:String) extends AbstractHangmanGame (HangmanGameLogicImpl, HangmanGameConsoleUI){
   def readFileLines(file:String): List[String] = {
     val fileChannel = Source.fromFile (file)
     val lines = fileChannel.getLines().toList
@@ -14,11 +14,9 @@ object ClassicalConsoleHangmanGameCountriesEdition{
     lines
   }
   def wordsSet():List[String] ={
-    readFileLines("src/main/resources/countries.txt")
+    readFileLines("src/main/resources/"+filename+".txt")
   }
 
-  def configureMatch(player: Player): Unit = {
-    new HangmanGameMatch(player, HangmanGameLogicImpl, HangmanGameConsoleUI, wordsSet())
-  }
-
+  override def play(player: Player): Winner.Winner = super.play(player, wordsSet())
 }
+object ClassicalConsoleHangmanGameCountriesEdition extends ClassicalConsoleHangmanGame ("countries")

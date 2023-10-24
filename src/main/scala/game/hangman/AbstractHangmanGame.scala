@@ -3,16 +3,16 @@ package game.hangman
 
 import game.Player
 import game.Winner
-import game.GameMatch
+import game.Game
 
-class HangmanGameMatch  (private val player: Player,
+abstract class AbstractHangmanGame(
                         private val logic:HangmanGameLogic,
                         private val ui:HangmanGameUI,
-                        private val setOfAllowedWords:List[String])
-  extends GameMatch{
+                        )
+  extends Game{
 
 
-  override def play(): Winner.Winner = {
+  def play(player: Player, setOfAllowedWords:List[String]): Winner.Winner = {
     val status=logic.startGame(setOfAllowedWords)
     ui.gameStart(status)
     while (!status.isGameOver()) {

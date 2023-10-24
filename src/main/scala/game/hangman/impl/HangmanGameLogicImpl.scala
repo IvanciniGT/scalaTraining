@@ -10,7 +10,7 @@ import scala.util.Random
 
 object HangmanGameLogicImpl extends HangmanGameLogic {
 
-  private val MAX_FAILURES = 6
+  private val MAX_FAILURES: Int = 6
   // HEAD, BODY, ARMS x2  LEGS x2
 
   def startGame(setOfAllowedWords: List[String]):HangmanGameStatus={

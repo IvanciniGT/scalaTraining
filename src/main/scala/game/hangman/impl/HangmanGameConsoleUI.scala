@@ -24,6 +24,14 @@ object HangmanGameConsoleUI extends HangmanGameUI {
         println("Enter a new character")
         StdIn.readChar()
     }
+    def provideCharFeedBack(char: Char, gameStatus: HangmanGameStatus) = {
+        if (!gameStatus.targetWord.contains(char)) {
+            println("The character "+char+" is not in the word")
+        } else
+            println("The character "+char+" is in the word")
+
+    }
+
     def showGameStatus(gameStatus: HangmanGameStatus): Unit = {
         println("The word to guess is: "+gameStatus.targetWord.map(
             c => if (gameStatus.playedChars().contains(c) || c == ' ') c else '_').mkString("") )

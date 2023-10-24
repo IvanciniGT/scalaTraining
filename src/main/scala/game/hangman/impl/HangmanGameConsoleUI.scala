@@ -34,7 +34,7 @@ object HangmanGameConsoleUI extends HangmanGameUI {
 
     def showGameStatus(gameStatus: HangmanGameStatus): Unit = {
         println("The word to guess is: "+gameStatus.targetWord.map(
-            c => if (gameStatus.playedChars().contains(c) || c == ' ') c else '_').mkString("") )
+            c => if (gameStatus.playedChars().contains(c.toUpper) || c == ' ') c else '_').mkString("") )
         println("You played: "+gameStatus.playedChars().mkString(" "))
         println("You have "+gameStatus.remainingAttempts+" attempts left")
     }

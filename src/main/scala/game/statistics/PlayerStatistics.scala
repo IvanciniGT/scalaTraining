@@ -3,7 +3,9 @@ package game.statistics
 
 import game.Winner
 import game.Player
-class PlayerStatistics (val player: Player, val playedGames: List[PlayedGamed]){
+
+import java.io.Serializable
+class PlayerStatistics (val player: Player, val playedGames: List[PlayedGamed]) extends Serializable{
 
   def getWonGames(): List[PlayedGamed] = playedGames.filter( playedGame => playedGame.result == Winner.Player)
 

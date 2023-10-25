@@ -10,8 +10,6 @@ abstract class AbstractHangmanGame(
                         private val ui:HangmanGameUI,
                         )
   extends Game{
-
-
   def play(player: Player, setOfAllowedWords:List[String]): Winner.Winner = {
     val status=logic.startGame(setOfAllowedWords)
     ui.gameStart(status)

@@ -1,7 +1,6 @@
 package com.training
 package game.hangman
 
-import game.GameStatus
 trait HangmanGameUI {
     def gameStart(gameStatus:HangmanGameStatus): Unit
     def gameEnd(gameStatus: HangmanGameStatus): Unit

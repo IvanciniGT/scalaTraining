@@ -156,3 +156,44 @@ Stubs
 Fakes
 Spies
 Mocks 
+
+---
+
+# Tests
+
+## Unit tests
+
+- HangmanGameConsoleUI.gameStart(gameStatus: HangmanGameStatus): Unit
+- HangmanGameConsoleUI.gameEnd(gameStatus: HangmanGameStatus): Unit
+- HangmanGameConsoleUI.askForNewChar(): Char
+- HangmanGameConsoleUI.provideCharFeedBack(char: Char, gameStatus: HangmanGameStatus)
+- HangmanGameConsoleUI.showGameStatus(gameStatus: HangmanGameStatus): Unit
+
+- HangmanGameLogicImpl.startGame(setOfAllowedWords: List[String]):HangmanGameStatus
+- HangmanGameLogicImpl.newChar(newChar:Char, currentStatus:HangmanGameStatus):HangmanGameStatus
+
+
+- AbstractHangmanGame.play(player: Player, setOfAllowedWords:List[String]): Winner.Winner  // HARD TO TEST
+
+
+
+- ClassicalConsoleHangmanGame protected (filename:String, val name: String) extends AbstractHangmanGame (HangmanGameLogicImpl, HangmanGameConsoleUI){
+- readFileLines(file:String): List[String] 
+- wordsSet():List[String] 
+- play(player: Player): Winner.Winner
+
+- object ClassicalConsoleHangmanGameCountriesEdition
+
+
+
+
+
+
+
+
+
+
+
+
+
+

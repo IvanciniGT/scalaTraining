@@ -1,8 +1,9 @@
 package com.training
 package game
 
+import statistics.PlayerStatisticsRepository
 
-abstract class GameApplication protected ( val ui: ApplicationUI) {
+abstract class GameApplication protected ( val ui: ApplicationUI, val statisticsRepository: PlayerStatisticsRepository) {
 
   def startPlaying(games: List[Game]): Unit = {
     // Ask the player name
@@ -15,9 +16,11 @@ abstract class GameApplication protected ( val ui: ApplicationUI) {
       if(playAgainResponse == PlayAgainResponse.ANOTHER_GAME)
         game = ui.getGameToPlay(games)
 
-      game.play(player)
+      val result = game.play(player)
 
-      // update player statistics
+      if(statisticsRepository != null) // TODO REMOVE THIS LINE
+        statisticsRepository.newGame(player, game, result)
+
       playAgainResponse = ui.askToPlayAgain()
     }
   }

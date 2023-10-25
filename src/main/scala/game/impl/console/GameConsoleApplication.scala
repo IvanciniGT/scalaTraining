@@ -3,7 +3,7 @@ package game.impl.console
 
 import game.GameApplication
 import game.hangman.impl.ClassicalConsoleHangmanGameCountriesEdition
-object  GameConsoleApplication extends GameApplication ( ApplicationConsoleUI ){
+object  GameConsoleApplication extends GameApplication ( ApplicationConsoleUI, null){
 
   val games = List(
     ClassicalConsoleHangmanGameCountriesEdition

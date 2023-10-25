@@ -5,4 +5,4 @@ import game.Game
 import game.Winner
 
 import java.time.LocalDateTime
-class PlayedGamed (val game: Game, result: Winner.Winner, val date: LocalDateTime)
+class PlayedGamed (val game: Game, val result: Winner.Winner, val date: LocalDateTime)

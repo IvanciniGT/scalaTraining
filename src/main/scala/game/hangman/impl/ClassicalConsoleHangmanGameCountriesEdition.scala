@@ -6,7 +6,7 @@ import game.Player
 import game.Winner
 import game.hangman.AbstractHangmanGame
 
-class ClassicalConsoleHangmanGame protected (filename:String) extends AbstractHangmanGame (HangmanGameLogicImpl, HangmanGameConsoleUI){
+class ClassicalConsoleHangmanGame protected (filename:String, val name: String) extends AbstractHangmanGame (HangmanGameLogicImpl, HangmanGameConsoleUI){
   def readFileLines(file:String): List[String] = {
     val fileChannel = Source.fromFile (file)
     val lines = fileChannel.getLines().toList
@@ -18,5 +18,7 @@ class ClassicalConsoleHangmanGame protected (filename:String) extends AbstractHa
   }
 
   override def play(player: Player): Winner.Winner = super.play(player, wordsSet())
+
+  override def getGameName(): String = this.name
 }
-object ClassicalConsoleHangmanGameCountriesEdition extends ClassicalConsoleHangmanGame ("countries")
+object ClassicalConsoleHangmanGameCountriesEdition extends ClassicalConsoleHangmanGame ("countries", "Classical Hangman Game (Countries Edition)")

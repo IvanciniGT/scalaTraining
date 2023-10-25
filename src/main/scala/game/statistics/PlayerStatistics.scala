@@ -13,7 +13,7 @@ class PlayerStatistics (val player: Player, val playedGames: List[PlayedGamed]) 
 
   def getDrawGames(): List[PlayedGamed] = playedGames.filter( playedGame => playedGame.result == Winner.NoOne)
 
-  def getWinningPercentage(): Double = getWonGames().size / getPlayedGames().size
+  def getWinningPercentage(): Double = getWonGames().size / playedGames.size
 
-  def getLosingPercentage(): Double = getLostGames().size / getPlayedGames().size
+  def getLosingPercentage(): Double = getLostGames().size / playedGames.size
 }

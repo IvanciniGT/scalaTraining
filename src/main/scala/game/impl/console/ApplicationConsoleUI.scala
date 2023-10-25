@@ -4,6 +4,7 @@ package game.impl.console
 import game.{Game, PlayAgainResponse}
 
 import scala.io.StdIn
+import game.ApplicationUI
 object ApplicationConsoleUI extends ApplicationUI {
 
   def askToPlayAgain(): PlayAgainResponse.Response = {

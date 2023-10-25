@@ -2,7 +2,6 @@ package com.training
 package game
 
 
-import ui.ApplicationUI
 abstract class GameApplication protected ( val ui: ApplicationUI) {
 
   def startPlaying(games: List[Game]): Unit = {

@@ -1,8 +1,6 @@
 package com.training
-package game
+package game.impl.console
 
-import ui.ApplicationConsoleUI
-import hangman.impl.ClassicalConsoleHangmanGameCountriesEdition
 object  GameConsoleApplication extends GameApplication ( ApplicationConsoleUI ){
 
   val games = List(

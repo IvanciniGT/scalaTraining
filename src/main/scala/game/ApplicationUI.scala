@@ -1,8 +1,5 @@
 package com.training
-package game.ui
-
-import game.Game
-import game.PlayAgainResponse
+package game
 
 trait ApplicationUI {
   def askToPlayAgain(): PlayAgainResponse.Response

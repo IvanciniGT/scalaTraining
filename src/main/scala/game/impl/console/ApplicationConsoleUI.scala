@@ -1,9 +1,9 @@
 package com.training
-package game.ui
+package game.impl.console
+
+import game.{Game, PlayAgainResponse}
 
 import scala.io.StdIn
-import game.Game
-import game.PlayAgainResponse
 object ApplicationConsoleUI extends ApplicationUI {
 
   def askToPlayAgain(): PlayAgainResponse.Response = {

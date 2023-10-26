@@ -19,7 +19,7 @@ object PlayerStatisticsRepositorySpy extends PlayerStatisticsRepository {
     this.game = game
     this.result = result
   }
-  override def getStatistics(player: Player): List[PlayedGamed] = List()
+  override def getStatistics(player: Player): List[PlayedGame] = List()
 }
 
 object GameFakeLooser extends Game {

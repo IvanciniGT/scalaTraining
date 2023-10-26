@@ -11,10 +11,10 @@ class AbstractClassicSRHGameLogic extends SRHGameLogic {
   private var possibleGuesses:List[String] = null
   private var combinationsMatrix:Array[Array[Winner.Winner]] = null
 
-  def setPossibleGuesses(possibleGuesses:List[String]):Unit = {
+  def < (possibleGuesses:List[String]):Unit = {
     this.possibleGuesses = possibleGuesses
   }
-  def setCombinationsMatrix(combinationsMatrix:Array[Array[Winner.Winner]]):Unit = {
+  def << (combinationsMatrix:Array[Array[Winner.Winner]]):Unit = {
     this.combinationsMatrix = combinationsMatrix
   }
 

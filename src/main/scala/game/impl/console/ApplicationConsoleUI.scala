@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter
 object ApplicationConsoleUI extends ApplicationUI {
 
   def askToPlayAgain(): PlayAgainResponse.Response = {
-    println("Do you want to play again his game? [Y=Yes/N=No/S=Show statistics] (S)")
+    println("Do you want to play again this game? [Y=Yes/N=No/S=Show statistics] (S)")
     val response = StdIn.readLine()
     if (response.toUpperCase() == "S" || response.isEmpty) {
       PlayAgainResponse.SHOW_STATISTICS

@@ -116,4 +116,8 @@ DI: Is just that a class is not going to create instances of objects it needs...
 
 In JAVA we have the most huge framework (200 libraries) ever called Spring
 Spring is an IoC container (Inversion of Control)
-IoC is just a programming strategy that allows us to respect the DIP by making easy to inject dependencies into a class 
+IoC is just a programming strategy that allows us to respect the DIP by making easy to inject dependencies into a class
+
+
+ SCISSORS ROCK HAND GAME !
+ SCISSORS ROCK HAND SPOCK LIZARD GAME !

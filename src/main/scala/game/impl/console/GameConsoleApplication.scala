@@ -5,14 +5,15 @@ import game.GameApplication
 import game.hangman.impl.ClassicalConsoleHangmanGameCountriesEdition
 import game.statistics.PlayerStatisticsRepository
 import game.statistics.PlayerStatisticsRepositorySQLImpl
-
+import game.srh.impl.ClassicalConsoleSRHGame
 private class GameConsoleApplication (statisticsRepository: PlayerStatisticsRepository) extends GameApplication ( ApplicationConsoleUI, statisticsRepository) {
 }
 
 object GameConsoleApplication {
 
   val games = List(
-    ClassicalConsoleHangmanGameCountriesEdition
+    ClassicalConsoleHangmanGameCountriesEdition,
+    ClassicalConsoleSRHGame
   )
 
   def main(args: Array[String]): Unit = {

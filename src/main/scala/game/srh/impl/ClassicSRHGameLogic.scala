@@ -1,13 +1,11 @@
 package com.training
 package game.srh.impl
 
-import game.srh.SRHGameStatus
-import game.srh.SRHGameLogic
-object ClassicSRHGameLogic extends SRHGameLogic {
-  def init():SRHGameStatus = {
-    return null
-  }
-  def setPlayerGuess(currentStatus:SRHGameStatus, playerGuess:String):SRHGameStatus = {
-    null
-  }
+import game.{Winner}
+object ClassicSRHGameLogic extends AbstractClassicSRHGameLogic{
+
+  super.setPossibleGuesses(List("Scissors", "Rock", "Paper"))
+  super.setCombinationsMatrix(Array(Array(Winner.Tie, Winner.Computer, Winner.Player),
+    Array(Winner.Player, Winner.Tie, Winner.Computer),
+    Array(Winner.Computer, Winner.Player, Winner.Tie)))
 }

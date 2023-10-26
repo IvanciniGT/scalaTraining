@@ -11,8 +11,8 @@ abstract class AbstractSRHGame (
 ) extends Game{
   def play(player:Player): Winner.Winner = {
     val gameStatus = gameLogic.init()
-    gameUI.welcome()
-    val guess = gameUI.getGuess()
+    gameUI.welcome(gameStatus, this.getGameName())
+    val guess = gameUI.getGuess(gameStatus)
     gameLogic.setPlayerGuess(gameStatus, guess)
     gameUI.displayGameResult(gameStatus)
     gameStatus.winner.get

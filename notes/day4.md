@@ -121,3 +121,21 @@ IoC is just a programming strategy that allows us to respect the DIP by making e
 
  SCISSORS ROCK HAND GAME !
  SCISSORS ROCK HAND SPOCK LIZARD GAME !
+
+                    COMPUTER GUESS
+                        0       1       2   
+    PLAYER GUESS    0   0       2       1
+                    1   1       0       2
+                    2   2       1       0
+0 Scissors
+1 Rock
+2 Paper
+
+
+0 Tie
+1 Player wins
+2 Computer wins
+
+
+
+

@@ -13,14 +13,19 @@ abstract class GameApplication protected ( val ui: ApplicationUI, val statistics
     var game: Game = null
 
     while(playAgainResponse != PlayAgainResponse.QUIT) {
-      if(playAgainResponse == PlayAgainResponse.ANOTHER_GAME)
-        game = ui.getGameToPlay(games)
 
-      val result = game.play(player)
+      if(playAgainResponse == PlayAgainResponse.SHOW_STATISTICS){
+        ui.showStatistics(statisticsRepository.getStatistics(player))
+      } else{
 
-      if(statisticsRepository != null) // TODO REMOVE THIS LINE
-        statisticsRepository.newGame(player, game, result)
+        if(playAgainResponse == PlayAgainResponse.ANOTHER_GAME)
+          game = ui.getGameToPlay(games)
 
+        val result = game.play(player)
+
+        if(statisticsRepository != null) // TODO REMOVE THIS LINE
+          statisticsRepository.newGame(player, game, result)
+      }
       playAgainResponse = ui.askToPlayAgain()
     }
   }

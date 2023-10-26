@@ -5,15 +5,20 @@ import game.{Game, PlayAgainResponse}
 
 import scala.io.StdIn
 import game.ApplicationUI
+import game.statistics.PlayedGame
+
+import java.time.format.DateTimeFormatter
 object ApplicationConsoleUI extends ApplicationUI {
 
   def askToPlayAgain(): PlayAgainResponse.Response = {
-    println("Do you want to play again his game? (Y/N)")
+    println("Do you want to play again his game? [Y=Yes/N=No/S=Show statistics] (S)")
     val response = StdIn.readLine()
-    if (response.toUpperCase() == "Y") {
+    if (response.toUpperCase() == "S") {
+      PlayAgainResponse.SHOW_STATISTICS
+    } else if (response.toUpperCase() == "Y") {
       PlayAgainResponse.SAME_GAME
     } else {
-      println("Do you want to play another game? (Y/N)")
+      println("Do you want to play another game? [Y/N] (N)")
       val response = StdIn.readLine()
       if (response.toUpperCase() == "Y") {
         PlayAgainResponse.ANOTHER_GAME
@@ -36,5 +41,19 @@ object ApplicationConsoleUI extends ApplicationUI {
     println("Please enter your name:")
     val playerName = StdIn.readLine()
     playerName
+  }
+
+  override def showStatistics(value: List[PlayedGame]): Unit = {
+    // We will print Game (Max 50 chars) | Result (Max 15 chars) | Date (Max 20 chars) in forma: dd-MM-yyyy HH:mm
+    println("".padTo(50 + 15 + 20, '-'))
+    println("Game".padTo(50, ' ') + " | " + "Result".padTo(15, ' ') + " | " + "Date".padTo(20, ' '))
+    println("".padTo(50 + 15 + 20, '-'))
+    value.foreach { playedGame => {
+        val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm")
+        val date = playedGame.date.format(formatter)
+        println(playedGame.game.padTo(50, ' ') + " | " + playedGame.result.toString.padTo(15, ' ') + " | " + date.padTo(20, ' '))
+      }
+    }
+    println("".padTo(50 + 15 + 20, '-'))
   }
 }
